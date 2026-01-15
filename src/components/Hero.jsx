@@ -1,4 +1,4 @@
-import "./hero.css";
+import "./Hero.css";
 import astronaut from "../assets/astronaut.svg"; // add your image here
 
 export default function Hero() {
