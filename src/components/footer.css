@@ -1,0 +1,18 @@
+.footer {
+  margin-top: 120px;
+  padding: 28px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.6));
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer__copy {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  font-weight: 600;
+}

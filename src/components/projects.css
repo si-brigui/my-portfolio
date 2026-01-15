@@ -1,0 +1,234 @@
+/* =========================
+   Projects 
+   ========================= */
+
+:root {
+  --bg: #07070c;
+  --card: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.72);
+
+  --pill: rgba(124, 108, 255, 0.18);
+  --pillText: #c7c1ff;
+
+  --chipBg: rgba(255, 255, 255, 0.06);
+  --chipBorder: rgba(255, 255, 255, 0.12);
+
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Section ===== */
+.projects {
+  padding: 90px 24px;
+  background: radial-gradient(
+      900px 500px at 50% -10%,
+      rgba(124, 108, 255, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 500px at 10% 10%,
+      rgba(255, 255, 255, 0.04),
+      transparent 55%
+    ),
+    var(--bg);
+  color: var(--text);
+}
+
+.projects__heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.projects__heading h2 {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.projects__heading p {
+  margin: 12px auto 0;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* ===== Tabs (centered, no scrollbar/underline) ===== */
+.projects__tabs {
+  display: flex;
+  justify-content: center; /* ✅ center */
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* ✅ wrap instead of scroll */
+  overflow: hidden; /* ✅ prevent scrollbar line */
+  margin: 26px 0 44px;
+  padding: 0;
+  border: 0;
+}
+
+.projects__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.projects__tab {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.projects__tab:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.projects__tab.is-active {
+  background: linear-gradient(135deg, #7c6cff, #5a4dff);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ===== Grid: 3 per row ===== */
+.projects__grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  align-items: stretch;
+}
+
+/* ===== Card ===== */
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: transform 0.28s ease, border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.7);
+}
+
+/* Image area (same size as certificates) */
+.project-card__imageWrap {
+  width: 100%;
+  height: 190px; /* ✅ consistent */
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.project-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.project-card__body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Title + badge */
+.project-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.project-card__title {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.project-card__badge {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--pill);
+  color: var(--pillText);
+  border: 1px solid rgba(124, 108, 255, 0.25);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Description */
+.project-card__desc {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 6px 0 14px;
+}
+
+/* Tech chips (fix spacing) */
+.project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* ✅ proper spacing between chips */
+  margin-top: 10px;
+}
+
+.project-card__chip {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--chipBg);
+  border: 1px solid var(--chipBorder);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .projects__heading h2 {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 560px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__heading h2 {
+    font-size: 36px;
+  }
+
+  .project-card__imageWrap {
+    height: 170px;
+  }
+}

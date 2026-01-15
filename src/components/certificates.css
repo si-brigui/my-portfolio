@@ -1,0 +1,262 @@
+/* =========================
+   Certificates 
+   ========================= */
+
+:root {
+  --bg: #07070c;
+  --card: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.72);
+
+  --pill: rgba(124, 108, 255, 0.18);
+  --pillText: #c7c1ff;
+
+  --chipBg: rgba(255, 255, 255, 0.06);
+  --chipBorder: rgba(255, 255, 255, 0.12);
+
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Section ===== */
+.certificates {
+  padding: 90px 24px;
+  background: radial-gradient(
+      900px 500px at 50% -10%,
+      rgba(161, 44, 74, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 500px at 10% 10%,
+      rgba(127, 39, 39, 0.04),
+      transparent 55%
+    ),
+    var(--bg);
+  color: var(--text);
+}
+
+.certificates__heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.certificates__heading h2 {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.certificates__heading p {
+  margin: 12px auto 0;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* ===== Filters (no underline / no scrollbar) ===== */
+.certificates__filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap; /* ✅ wraps instead of horizontal scroll */
+  overflow: hidden; /* ✅ prevents scrollbar line */
+  margin: 26px 0 44px;
+  padding: 0;
+  border: 0;
+}
+
+.certificates__filters::-webkit-scrollbar {
+  display: none; /* extra safety */
+}
+
+.certificates__filters button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.certificates__filters button:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.certificates__filters button.active {
+  background: linear-gradient(135deg, #7c6cff, #5a4dff);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ===== Grid: 3 per row ===== */
+.certificates__grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  align-items: stretch;
+}
+
+/* ===== Card (same as projects style) ===== */
+.cert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: transform 0.28s ease, border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.7);
+}
+
+/* Image area */
+.cert-card img {
+  width: 100%;
+  height: 190px; /* ✅ consistent like screenshot */
+  object-fit: cover;
+  display: block;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Body */
+.cert-card__body {
+  padding: 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Top row: title + badge to the right (like Student/Course Project pill) */
+.cert-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.cert-card__body h3 {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* Badge (uses issuer, looks like pill on the right) */
+.cert-card__issuer {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--pill);
+  color: var(--pillText);
+  border: 1px solid rgba(124, 108, 255, 0.25);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Optional description (if you add later) */
+.cert-card__desc {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 6px 0 14px;
+}
+
+/* Chips */
+.cert-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.chip {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--chipBg);
+  border: 1px solid var(--chipBorder);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Footer */
+.cert-card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cert-card__footer span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cert-card__footer a {
+  color: #c7c1ff;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(124, 108, 255, 0.1);
+  border: 1px solid rgba(124, 108, 255, 0.22);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-card__footer a:hover {
+  background: rgba(124, 108, 255, 0.18);
+  border-color: rgba(124, 108, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .certificates__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .certificates__heading h2 {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 560px) {
+  .certificates__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certificates__heading h2 {
+    font-size: 36px;
+  }
+
+  .cert-card img {
+    height: 170px;
+  }
+}
