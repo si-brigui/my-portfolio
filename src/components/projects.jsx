@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import "./Projects.css";
+import "./projects.css";
 
 // Images (adjust names if yours differ)
 import coffeeParadiseImg from "../assets/projects/coffee-paradise.jpeg";
